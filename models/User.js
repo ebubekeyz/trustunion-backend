@@ -12,7 +12,7 @@ const UserSchema = new mongoose.Schema(
       required: [true, 'Please enter email'],
       validate: {
         validator: validator.isEmail,
-        message: 'Please provide a valid email',
+        message: 'Please provide a valid email address',
       },
       unique: true,
     },
@@ -22,6 +22,7 @@ const UserSchema = new mongoose.Schema(
     },
     balance: {
       type: String,
+      default: 0,
     },
     firstName: {
       type: String,
@@ -56,8 +57,7 @@ const UserSchema = new mongoose.Schema(
     },
     accountOwnership: {
       type: String,
-      enum: ['Individual', 'Joint Account', 'Trust Account'],
-      required: true,
+      enum: ['Individual', 'Joint Account', 'Trust Account', ],
     },
     typeOfAccount: {
       type: String,
@@ -67,6 +67,7 @@ const UserSchema = new mongoose.Schema(
         'Money Market Account',
         'Certificate Of Deposit Account',
       ],
+      required: true
     },
     identity: {
       type: String,
@@ -75,29 +76,26 @@ const UserSchema = new mongoose.Schema(
         'Passport Number',
         "Driver's License Number ",
       ],
-      required: true,
     },
     gender: {
       type: String,
       enum: ['Male', 'Female'],
+      required: true
     },
     noc: {
       type: String,
     },
     idNumber: {
       type: Number,
-      required: true,
     },
     occupation: {
       type: String,
-      required: true,
     },
     terms: {
       type: String,
     },
     address: {
       type: String,
-      required: true,
     },
     dob: {
       type: String,
@@ -119,6 +117,7 @@ const UserSchema = new mongoose.Schema(
     employmentStatus: {
       type: String,
       enum: ['Student', 'Unemployed', 'Retired', 'Self-Employed', 'Employed'],
+      
     },
     relationship: {
       type: String,

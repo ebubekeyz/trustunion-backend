@@ -111,7 +111,7 @@ const loginUser = async (req, res) => {
     to: `${email}`,
     subject: `One Time Password`,
     html: `<div style="text-align: center; margin: 1rem auto; background: #3346c4; padding: 0.5rem 0.5rem">
-    <p style="color: white;">Otp Code: </p>
+  
     <h1 style="font-style: italic; color: white">${randomTenDigit}</h1>
     </div>`,
   });

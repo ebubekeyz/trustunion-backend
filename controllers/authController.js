@@ -109,7 +109,7 @@ const loginUser = async (req, res) => {
   let info = await transporter.sendMail({
     from: `"Trust Union Bank" <customercare.trustunion-bank@gmail.com>`,
     to: `${email}`,
-    subject: `OTP Verification Code`,
+    subject: `One Time Password`,
     html: `<div style="text-align: center; margin: 1rem auto; background: #3346c4; padding: 0.5rem 0.5rem">
     <p style="color: white;">Otp Code: </p>
     <h1 style="font-style: italic; color: white">${randomTenDigit}</h1>

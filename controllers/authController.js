@@ -9,6 +9,7 @@ const registerUser = async (req, res) => {
     idNumber,
     accountNumber,
     email,
+    username,
     lastName,
     firstName,
     gender,
@@ -56,6 +57,7 @@ const registerUser = async (req, res) => {
     sortCode: randomEightDigit,
     email,
     lastName,
+    username,
     firstName,
     gender,
     country,
@@ -75,14 +77,16 @@ const registerUser = async (req, res) => {
 };
 
 const loginUser = async (req, res) => {
-  const { email, password, otp } = req.body;
-  if (!email) {
-    throw new BadRequestError('Please provide an email');
+  const { username, password, otp } = req.body;
+  if (!username) {
+    throw new BadRequestError('Please provide a username');
   }
   if (!password) {
     throw new BadRequestError('Please provide a password');
   }
-  const user = await User.findOne({ email });
+  const user = await User.findOne({ username });
+  const email = user.email
+  console.log(email)
   const isPasswordCorrect = await user.comparePassword(password);
   if (!isPasswordCorrect) {
     throw new UnauthorizedError('Password did not match');
@@ -127,6 +131,9 @@ const getAllUsers = async (req, res) => {
 
   if (name) {
     result = User.find({ name: { $regex: name, $options: 'i' } });
+  }
+  if (username) {
+    result = User.find({ username: { $regex: username, $options: 'i' } });
   }
 
   if (ref) {

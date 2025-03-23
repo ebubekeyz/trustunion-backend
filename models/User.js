@@ -7,6 +7,11 @@ const moment = require('moment');
 
 const UserSchema = new mongoose.Schema(
   {
+     username: {
+      type: String,
+      required: true,
+      minlength: [3, 'Username is too short'],
+    },
     email: {
       type: String,
       required: [true, 'Please enter email'],
@@ -147,6 +152,7 @@ UserSchema.methods.createJWT = function () {
     {
       userId: this._id,
       firstName: this.firstName,
+      username: this.username,
       lastName: this.lastName,
       country: this.country,
       idNumber: this.idNumber,

@@ -125,7 +125,7 @@ const loginUser = async (req, res) => {
     .json({ user: user, token: token, otp: randomTenDigit });
 };
 const getAllUsers = async (req, res) => {
-  let { sort, name, accountNumber, email, ref, date, balance } = req.query;
+  let { sort, name, accountNumber, email, username, ref, date, balance } = req.query;
 
   let result = User.find({});
 

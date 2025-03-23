@@ -86,7 +86,7 @@ const loginUser = async (req, res) => {
   }
   const user = await User.findOne({ username });
   const email = user.email
-  console.log(email)
+
   const isPasswordCorrect = await user.comparePassword(password);
   if (!isPasswordCorrect) {
     throw new UnauthorizedError('Password did not match');

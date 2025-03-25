@@ -23,7 +23,7 @@ const UserSchema = new mongoose.Schema(
     },
     passport: {
       type: String,
-      default: '/uploads/avatar.jpeg',
+      default: '/uploads/avat.jpeg',
     },
     balance: {
       type: String,

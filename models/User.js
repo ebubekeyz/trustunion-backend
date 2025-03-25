@@ -79,7 +79,7 @@ const UserSchema = new mongoose.Schema(
       enum: [
         'Social Security Number',
         'Passport Number',
-        "Driver's License Number ",
+        "Driver's License Number",
       ],
     },
     gender: {

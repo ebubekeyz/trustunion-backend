@@ -23,7 +23,7 @@ const UserSchema = new mongoose.Schema(
     },
     passport: {
       type: String,
-      default: '/uploads/avat.jpeg',
+      default: 'https://res.cloudinary.com/diuzazctn/image/upload/v1742871961/trustunion/tmp-1-1742871959592_mywte3.jpg',
     },
     balance: {
       type: String,
